@@ -1,13 +1,19 @@
-/* Reset */
+/*************/
+/*** RESET ***/
+/*************/
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Lato", sans-serif;
 }
-/* End Reset */
+/*************/
+/* END RESET */
+/*************/
 
-/* General Rules */
+/*********************/
+/*** GENERAL RULES ***/
+/*********************/
 h1, h2, h3, h4, h5, h6, p, a, li{
   margin-top: 5px;
   color: white;
@@ -21,6 +27,7 @@ hr{
 i{
   margin-right: 25px;
 }
+
 i.socials{
   font-size: 25px;
 }
@@ -32,6 +39,10 @@ a{
 ul li{
   list-style-type: none;
   color: white;
+}
+
+.hidden{
+  opacity: 0%;
 }
 
 .flex-row{
@@ -47,9 +58,13 @@ ul li{
 .text-center{
   text-align: center;
 }
-/* End General Rules */
+/*************************/
+/*** END GENERAL RULES ***/
+/*************************/
 
-/* Wrapper */
+/***************/
+/*** WRAPPER ***/
+/***************/
 .wrapper{
   width: 100%;
   height: 100vh;
@@ -60,18 +75,20 @@ ul li{
   display: table;
   clear: both;
 }
-/* End Wrapper */
+/***************/
+/* END WRAPPER */
+/***************/
 
-/* Left Cotnainer */
+/***********************/
+/*** LEFT CONTAINER ***/
+/***********************/
 .left-container{
-  float: left;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
 
-  width: 350px;
+
   height: 100%;
 
   padding: 50px;
@@ -82,18 +99,14 @@ ul li{
 .left-container .avatar img{
   border-radius: 50%;
 }
-/* End Left Cotnainer */
+/***********************/
+/* END LEFT CONTAINER */
+/***********************/
 
-
-/* Right Cotnainer */
+/***********************/
+/*** RIGHT CONTAINER ***/
+/***********************/
 .right-container{
-  float: right;
-
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-
-  width: calc(100% - 350px);
   height: 100%;
 
   padding: 50px;
@@ -103,15 +116,129 @@ ul li{
   overflow: scroll;
 }
 
+.right-container .cards{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
 .right-container .project-card{
-  width: 300px;
+  position: relative;
+
+  width: 100%;
+
+  min-width: 150px;
+  max-width: 600px;
   height: 300px;
 
   margin-top: 50px;
+  padding: 5px;
 
-  background-color: yellow;
-  border: 1px solid black;
-  border-radius: 20px;
+  border: 1px solid white;
 }
 
-/* End Left Cotnainer */
+.right-container .project-card .card-content{
+  width: 100%;
+  height: 100%;
+
+  background-size: cover;
+  background-position: center;
+
+}
+
+.right-container .project-card .card-overlay{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  cursor: pointer;
+}
+
+.right-container .project-card .card-overlay{
+  justify-content: space-between;
+
+  padding: 20px;
+
+  background-color: #EE5A42;
+
+  border-radius: 15px;
+
+  box-shadow: 7px 7px 10px 0px rgba(50, 50, 50, 0.75);
+}
+
+.right-container .project-card:hover .card-content{
+  filter: blur(5px);
+  filter: grayscale(100%);
+
+  transition: filter 0.3s ease;
+}
+
+.right-container .project-card:hover .hidden {
+  opacity: 100%;
+
+  transition: opacity 0.3s ease;
+}
+
+
+
+/* Card IMGS */
+#boolzapp {
+  background-image: url("../assets/img/boolzapp.jpg");
+}
+#spotify{
+  background-image: url("../assets/img/spotify.jpg");
+}
+#boolflix{
+  background-image: url("../assets/img/boolflix.jpg");
+}
+#digital-ocean{
+  background-image: url("../assets/img/digital-ocean.jpg");
+}
+#hubspot{
+  background-image: url("../assets/img/hubspot.jpg");
+}
+#fluentify{
+  background-image: url("../assets/img/fluentify.jpg");
+}
+
+/***********************/
+/* END RIGHT CONTAINER */
+/***********************/
+
+/*********************/
+/*** MEDIA QUERIES ***/
+/*********************/
+@media screen and (min-width: 480px) {
+  .left-container{
+    float: left;
+
+    width: 300px;
+
+    padding: 30px;
+  }
+
+  .right-container{
+    float: right;
+
+    width: calc(100% - 300px);
+
+    padding: 30px;
+  }
+}
+@media screen and (min-width: 768px){
+  .left-container{
+    float: left;
+
+    width: 350px;
+  }
+
+  .right-container{
+    float: right;
+
+    width: calc(100% - 350px);
+  }
+}
+/*********************/
+/* END MEDIA QUERIES */
+/*********************/
